@@ -1,0 +1,21 @@
+Service Information
+service: notes-app-api
+stage: prod
+region: us-east-1
+stack: notes-app-api-prod
+api keys:
+  None
+endpoints:
+  POST - https://7qngpp2s73.execute-api.us-east-1.amazonaws.com/prod/notes
+  GET - https://7qngpp2s73.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  GET - https://7qngpp2s73.execute-api.us-east-1.amazonaws.com/prod/notes
+  PUT - https://7qngpp2s73.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  DELETE - https://7qngpp2s73.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  GET - https://7qngpp2s73.execute-api.us-east-1.amazonaws.com/prod/hello
+functions:
+  create: notes-app-api-prod-create
+  get: notes-app-api-prod-get
+  list: notes-app-api-prod-list
+  update: notes-app-api-prod-update
+  delete: notes-app-api-prod-delete
+  hello: notes-app-api-prod-hello

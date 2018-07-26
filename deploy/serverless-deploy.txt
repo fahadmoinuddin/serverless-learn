@@ -1,0 +1,21 @@
+Service Information
+service: notes-app-api
+stage: dev
+region: us-east-1
+stack: notes-app-api-dev
+api keys:
+  None
+endpoints:
+  POST - https://jb25wfuaf9.execute-api.us-east-1.amazonaws.com/dev/notes
+  GET - https://jb25wfuaf9.execute-api.us-east-1.amazonaws.com/dev/notes/{id}
+  GET - https://jb25wfuaf9.execute-api.us-east-1.amazonaws.com/dev/notes
+  PUT - https://jb25wfuaf9.execute-api.us-east-1.amazonaws.com/dev/notes/{id}
+  DELETE - https://jb25wfuaf9.execute-api.us-east-1.amazonaws.com/dev/notes/{id}
+  GET - https://jb25wfuaf9.execute-api.us-east-1.amazonaws.com/dev/hello
+functions:
+  create: notes-app-api-dev-create
+  get: notes-app-api-dev-get
+  list: notes-app-api-dev-list
+  update: notes-app-api-dev-update
+  delete: notes-app-api-dev-delete
+  hello: notes-app-api-dev-hello
