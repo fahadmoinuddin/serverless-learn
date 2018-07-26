@@ -92,13 +92,6 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
-          
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          path: hello
-          method: get
 
 resources:
   - ${file(resources/dynamodb-table.yml)}
