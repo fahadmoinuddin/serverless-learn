@@ -9,6 +9,11 @@ plugins:
 # serverless-webpack configuration
 # Enable auto-packing of external modules
 custom:
+  stage: ${opt:stage, self:provider.stage}
+  tableThroughputs:
+    prod: 5
+    default: 1
+  tableThroughput: ${self:custom.tableThroughputs.${self:custom.stage}, self:custom.tableThroughputs.default}
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
@@ -25,6 +30,10 @@ provider:
   #
   #environment: ${file(env.yml):${self:provider.stage}}
 
+  environment:
+    tableName:
+      Ref: NotesTable
+
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -35,7 +44,8 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-east-2:*:*"
+      Resource:
+        - "Fn::GetAtt": [ NotesTable, Arn ]
 
 functions:
   create:
@@ -89,3 +99,6 @@ functions:
       - http:
           path: hello
           method: get
+
+resources:
+  - ${file(resources/dynamodb-table.yml)}
