@@ -93,6 +93,15 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  billing:
+    handler: billing.main
+    events:
+      - http:
+          path: billing
+          method: post
+          cors: true
+          authorizer: aws_iam
+
 resources:
   - ${file(resources/dynamodb-table.yml)}
   - ${file(resources/s3-bucket.yml)}
